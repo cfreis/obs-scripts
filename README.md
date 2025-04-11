@@ -38,7 +38,7 @@ This task are made from the Python script `wayland_obs_keys.py`
 
 ### Usage
 1. Launch OBS Studio
-   Ensure OBS is running with the WebSocket server enabled.
+   - Ensure OBS is running with the WebSocket server enabled.
 
 2. Trigger a Command 
    - Press your configured KDE shortcut (e.g. `Meta+Z`) 
