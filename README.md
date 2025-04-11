@@ -54,10 +54,11 @@ The following key values are accepted by the WebSocket function:
 
 `cl.trigger_hot_key_by_key_sequence(key)`
 
-To show the exact name of the pressed key, change the script `wayland_obs_keys.py` line from
+To show the exact name of the pressed key, change the script `wayland_obs_keys.py` line
 
 `show_key = False  # Change to 'True' to enable key name display`
 
+Supported keys:
 
 | **LETTERS** | **LETTERS** | **NUMBERS** | **F KEYS** |
 | ---------- | ---------- | ---------- | ---------- |
