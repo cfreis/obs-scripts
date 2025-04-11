@@ -1,31 +1,47 @@
 # OBS wayland shortcuts workaround
 
-Currently (august 2023) it is not possible to set shortcuts in obs when you are in Wayland session. This project may be used to workaround the problem.
-This probably will be not needed after OBS implements GlobalShortcuts portal. See https://ideas.obsproject.com/posts/2066/implement-globalshortcuts-portal and https://invent.kde.org/plasma/xdg-desktop-portal-kde/-/merge_requests/80.
+Currently in Wayland sessions, OBS Studio shortcuts can only be triggered when the window has focus. To work around this limitation, I've implemented an interim solution while we await proper system-level fixes.
 
-The idea of workaround is to use kde global shortcuts, that are running a command. This command is a script, which tells obs what to do. It works via obs-websocket plugin (usually built-in).
+It is based on a Andrew Shark's original concept (https://gitlab.com/AndrewShark/obs-scripts), using a KDE global shortcut to execute a Python application. The program monitors keyboard input for the next keypress and forwards it as a hotkey command to OBS Studio through the obs-websocket plugin interface.
 
-This repository contains the following sctipt:  
-- recording-toggle.py - script that allows you to use a single shortcut to trigger start, then pause/unpause recording.
+This task are made from the Python script wayland_obs_keys.py
 
-## Reqirements
+## Installation Guide
 
-Install the following packages (Arch Linux names of packages):  
-- obs-studio-git (because currently the obs-studio package misses the websocket plugin, see Arch Wiki).
+### OBS Studio setup
+1. Launch OBS Studio;
+2. Configure WebSocket Server:
+* Navigate to Tools > WebSocket Server Settings;
+* Enable WebSocket server;
+* Security (recommended):
+    * Set a password and copy it for later use.
+3. Click Apply to save settings.
 
-## Installation and configuration
-Clone this repository to the folder when it is comfortable for you to keep it. For example, in `~/Development/obs-scripts`  
+### Clone the repository
+1. Clone this repository to your local machine;
+2. Open wayland_obs_keys.py;
+3. Update the WebSocket connection line:
+* cl = obs.ReqClient(host='localhost', port=4455, password='***your_password***', timeout=3);
+* Replace ***your_password*** with your actual OBS WebSocket password (keep the quotes).
 
-Go to kde System Settings, Shortcuts. Click the "Add Command" button.  
-Paste (or pick) the path to the script. In my example it will be `/home/andrey/Development/obs-scripts/obs-wayland-shortcuts/recording-toggle.py`, then press "Add".  
-Then press "Add custom shortcut", and press the desired shortcut. For example, I will use `Meta+X`. Then press "Apply".  
+### Configure a KDE Shortcut
+1. Open KDE System Settings > Shortcuts
+2. Click the "Add Command" button
+3. Enter the full path to the script (e.g., /path/to/wayland_obs_keys.py)
+4. Click "Add" to confirm
+5. Set Your Shortcut:
+* Click "Add Custom Shortcut"
+* Press your desired key combination (e.g., Meta+Z)
+* Click "Apply" to save
 
-### Configure for Logitech Options
-For Logitech mice, use logid configs to bind keypresses to mouse gestures. Then configure as normal, but draw a gesture when specifying shortcut.
+### Usage
+1. Launch OBS Studio
+   Ensure OBS is running with the WebSocket server enabled.
 
-## Usage
-Open obs. Minimize it. Prepare for recording. Press the shortcut (Meta+X in my case). You see in tray that obs started recording. Press Meta+X again. You see that obs paused recording. Press shortcut again. You see that obs resumed recording. Unminimize obs window. Stop recording manually by hitting the stop recording button.
+2. Trigger a Command 
+   - Press your configured KDE shortcut (e.g. `Meta+Z`) 
+   - Immediately press the OBS hotkey you want to execute 
+   - The associated OBS action will trigger if configured correctly
 
-# Development
-Protocol reference is here:  
-https://github.com/obsproject/obs-websocket/blob/master/docs/generated/protocol.md
+3. Next Command 
+   Repeat the process for additional hotkeys.
