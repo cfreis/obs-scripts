@@ -1,6 +1,6 @@
 # OBS wayland shortcuts workaround
 
-Currently in Wayland sessions, OBS Studio shortcuts can only be triggered when the window has focus. To work around this limitation, I've implemented an kludge solution while we await proper system-level fixes.
+Currently in Wayland sessions, OBS Studio shortcuts can only be triggered when the window has focus. To work around this limitation, I've implemented a kludge solution while we await proper system-level fixes.
 
 It is based on a Andrew Shark's original concept (https://gitlab.com/AndrewShark/obs-scripts), using a KDE global shortcut to execute a Python application. The program monitors keyboard input for the next keypress, forwards it as a hotkey command to OBS Studio through the obs-websocket plugin interface and quit.
 
