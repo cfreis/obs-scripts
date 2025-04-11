@@ -22,6 +22,7 @@ This task are made from the Python script `wayland_obs_keys.py`
 1. Clone this repository to your local machine;
 2. Open wayland_obs_keys.py;
 3. Update the WebSocket connection line:
+
     `cl = obs.ReqClient(host='localhost', port=4455, password='***your_password***', timeout=3);`
     * Replace ***your_password*** with your actual OBS WebSocket password (keep the quotes).
 
