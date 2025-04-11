@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
 # Author: Clovis Reis
-# Homepage: https://gitlab.com/clovisReis/obs-scripts
+# Homepage: https://github.com/cfreis/obs-scripts
 # License: GPLv3
 
 ''' 
