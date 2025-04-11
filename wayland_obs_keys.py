@@ -15,7 +15,7 @@ import obsws_python as obs
 import tkinter as tk
 from tkinter import messagebox
 
-show_key = True #change for True to explore the key detected
+show_key = False #change for True to explore the key detected
 
 def on_key_press(event):
     key = event.keysym
