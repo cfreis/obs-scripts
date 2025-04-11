@@ -13,13 +13,20 @@ This solution is based on the script originally created by Andrew Shark (https:/
 
 import obsws_python as obs
 import tkinter as tk
+from tkinter import messagebox
+
+show_key = True #change for True to explore the key detected
 
 def on_key_press(event):
     key = event.keysym
+    if show_key:
+        messagebox.showinfo("Key pressed", f"{key}")
     key = 'OBS_KEY_' + key.upper()
-    cl = obs.ReqClient(host='localhost', port=4455, password='your_password', timeout=3)
-    cl.trigger_hot_key_by_key_sequence(key)
-    root.quit()
+    try:
+        cl = obs.ReqClient(host='localhost', port=4455, password='your_password', timeout=3)
+        cl.trigger_hot_key_by_key_sequence(key)
+    finally:
+        root.quit()
 
 root = tk.Tk()
 root.title("")
