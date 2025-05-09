@@ -1,0 +1,48 @@
+version = 1
+revision = 2
+requires-python = ">=3.13"
+
+[[package]]
+name = "obs-scripts"
+version = "0.1.0"
+source = { virtual = "." }
+dependencies = [
+    { name = "obsws-python" },
+    { name = "python-dotenv" },
+]
+
+[package.metadata]
+requires-dist = [
+    { name = "obsws-python", specifier = ">=1.7.1" },
+    { name = "python-dotenv", specifier = ">=1.1.0" },
+]
+
+[[package]]
+name = "obsws-python"
+version = "1.7.1"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "websocket-client" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/0d/09/0da28ff892cbf173bf7e2ab231bbc4badaf46bef87e8316fc38ae367e3c3/obsws_python-1.7.1.tar.gz", hash = "sha256:2297d00283c54250ae88ea2b4fbdc8bafd083195236a418c6ad62c87545eea21", size = 29080, upload_time = "2025-02-10T12:32:06.542Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/44/ad/d704754ddf1eaafdbd3c73a1844fbcdb67925fff1a3a4c4a18b77ff2b30c/obsws_python-1.7.1-py3-none-any.whl", hash = "sha256:18e7b18f1409526b329339d973c31ab50130ca66402e7bf1430370713f35b3ce", size = 30845, upload_time = "2025-02-10T12:32:05.456Z" },
+]
+
+[[package]]
+name = "python-dotenv"
+version = "1.1.0"
+source = { registry = "https://pypi.org/simple" }
+sdist = { url = "https://files.pythonhosted.org/packages/88/2c/7bb1416c5620485aa793f2de31d3df393d3686aa8a8506d11e10e13c5baf/python_dotenv-1.1.0.tar.gz", hash = "sha256:41f90bc6f5f177fb41f53e87666db362025010eb28f60a01c9143bfa33a2b2d5", size = 39920, upload_time = "2025-03-25T10:14:56.835Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/1e/18/98a99ad95133c6a6e2005fe89faedf294a748bd5dc803008059409ac9b1e/python_dotenv-1.1.0-py3-none-any.whl", hash = "sha256:d7c01d9e2293916c18baf562d95698754b0dbbb5e74d457c45d4f6561fb9d55d", size = 20256, upload_time = "2025-03-25T10:14:55.034Z" },
+]
+
+[[package]]
+name = "websocket-client"
+version = "1.8.0"
+source = { registry = "https://pypi.org/simple" }
+sdist = { url = "https://files.pythonhosted.org/packages/e6/30/fba0d96b4b5fbf5948ed3f4681f7da2f9f64512e1d303f94b4cc174c24a5/websocket_client-1.8.0.tar.gz", hash = "sha256:3239df9f44da632f96012472805d40a23281a991027ce11d2f45a6f24ac4c3da", size = 54648, upload_time = "2024-04-23T22:16:16.976Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/5a/84/44687a29792a70e111c5c477230a72c4b957d88d16141199bf9acb7537a3/websocket_client-1.8.0-py3-none-any.whl", hash = "sha256:17b44cc997f5c498e809b22cdf2d9c7a9e71c02c8cc2b6c56e7c2d1239bfa526", size = 58826, upload_time = "2024-04-23T22:16:14.422Z" },
+]
